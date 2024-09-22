@@ -51,12 +51,10 @@ class SiglipVisionEmbeddings(nn.Module):
         self.num_patches = (self.image_size // self.patch_size) ** 2
         self.num_positions = self.num_patches
         self.position_embedding = nn.Embedding(self.num_positions, self.embed_dim)
-
-        # Buffers are tensors that are not considered as model parameters but are part model's state
         self.register_buffer(
             "position_ids",
             torch.arange(self.num_positions).expand((1, -1)),
-            persistent=False, # Buffers are not stored when saving model's state_dict
+            persistent=False,
         )
 
     def forward(self, pixel_values: torch.FloatTensor) -> torch.Tensor:
