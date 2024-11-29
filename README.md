@@ -1,2 +1,1 @@
-# PaliGemma
-Implementation of PaliGemma
+# pytorch-paligemma
